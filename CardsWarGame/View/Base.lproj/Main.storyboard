@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CardsWarGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-G6-h63" userLabel="Horizontal">
+                                <rect key="frame" x="0.0" y="0.0" width="853" height="394"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_west_side" translatesAutoresizingMaskIntoConstraints="NO" id="zk4-ng-PmJ">
+                                        <rect key="frame" x="0.0" y="84" width="231" height="226"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="160" translatesAutoresizingMaskIntoConstraints="NO" id="rzY-KI-csQ" userLabel="Vertical">
+                                        <rect key="frame" x="311" y="57.666666666666657" width="231" height="278.66666666666674"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Ev-Xi-bA5">
+                                                <rect key="frame" x="0.0" y="0.0" width="231" height="84.333333333333329"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af0-V1-c2a">
+                                                        <rect key="frame" x="0.0" y="0.0" width="231" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Insert Name"/>
+                                                        <connections>
+                                                            <action selector="inserName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AfZ-WZ-9Ik"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vm-bz-aQ3">
+                                                        <rect key="frame" x="0.0" y="34.333333333333336" width="231" height="50.000000000000007"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O52-su-Pd1">
+                                                <rect key="frame" x="0.0" y="244.33333333333334" width="231" height="34.333333333333343"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="START"/>
+                                                <connections>
+                                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="omc-U9-HTH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_east_side" translatesAutoresizingMaskIntoConstraints="NO" id="ID1-nB-uEn">
+                                        <rect key="frame" x="622" y="83.666666666666686" width="231" height="227"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RJk-G6-h63" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="H8x-Il-15S"/>
+                            <constraint firstAttribute="trailing" secondItem="RJk-G6-h63" secondAttribute="trailing" constant="-1" id="Xd6-p5-Qo6"/>
+                            <constraint firstAttribute="bottom" secondItem="RJk-G6-h63" secondAttribute="bottom" constant="-1" id="bqk-5m-cbN"/>
+                            <constraint firstItem="RJk-G6-h63" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rag-uS-Doi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inserNameButton" destination="af0-V1-c2a" id="jac-fx-Q67"/>
+                        <outlet property="nameLabel" destination="8Vm-bz-aQ3" id="uk7-75-YKU"/>
+                        <outlet property="nameLabelButton" destination="8Vm-bz-aQ3" id="nPE-BW-7oX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20.422535211267608" y="3.8167938931297707"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_east_side" width="115" height="227"/>
+        <image name="ic_west_side" width="116" height="226"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

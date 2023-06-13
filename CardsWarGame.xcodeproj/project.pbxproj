@@ -16,6 +16,8 @@
 		C1A38D412A38C750002DD054 /* CardsWarGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D402A38C750002DD054 /* CardsWarGameTests.swift */; };
 		C1A38D4B2A38C750002DD054 /* CardsWarGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D4A2A38C750002DD054 /* CardsWarGameUITests.swift */; };
 		C1A38D4D2A38C750002DD054 /* CardsWarGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D4C2A38C750002DD054 /* CardsWarGameUITestsLaunchTests.swift */; };
+		C1A38D5D2A38CEDD002DD054 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D5C2A38CEDD002DD054 /* GameManager.swift */; };
+		C1A38D5F2A38D001002DD054 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D5E2A38D001002DD054 /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C1A38D462A38C750002DD054 /* CardsWarGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardsWarGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A38D4A2A38C750002DD054 /* CardsWarGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsWarGameUITests.swift; sourceTree = "<group>"; };
 		C1A38D4C2A38C750002DD054 /* CardsWarGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsWarGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C1A38D5C2A38CEDD002DD054 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		C1A38D5E2A38D001002DD054 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,11 @@
 		C1A38D282A38C74F002DD054 /* CardsWarGame */ = {
 			isa = PBXGroup;
 			children = (
+				C1A38D5B2A38C8D2002DD054 /* View */,
+				C1A38D5A2A38C769002DD054 /* Controller */,
+				C1A38D592A38C75F002DD054 /* Model */,
 				C1A38D292A38C74F002DD054 /* AppDelegate.swift */,
 				C1A38D2B2A38C74F002DD054 /* SceneDelegate.swift */,
-				C1A38D2D2A38C74F002DD054 /* ViewController.swift */,
-				C1A38D2F2A38C74F002DD054 /* Main.storyboard */,
 				C1A38D322A38C750002DD054 /* Assets.xcassets */,
 				C1A38D342A38C750002DD054 /* LaunchScreen.storyboard */,
 				C1A38D372A38C750002DD054 /* Info.plist */,
@@ -125,6 +130,31 @@
 				C1A38D4C2A38C750002DD054 /* CardsWarGameUITestsLaunchTests.swift */,
 			);
 			path = CardsWarGameUITests;
+			sourceTree = "<group>";
+		};
+		C1A38D592A38C75F002DD054 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1A38D5C2A38CEDD002DD054 /* GameManager.swift */,
+				C1A38D5E2A38D001002DD054 /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1A38D5A2A38C769002DD054 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C1A38D2D2A38C74F002DD054 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C1A38D5B2A38C8D2002DD054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1A38D2F2A38C74F002DD054 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1A38D5F2A38D001002DD054 /* GameModel.swift in Sources */,
 				C1A38D2E2A38C74F002DD054 /* ViewController.swift in Sources */,
+				C1A38D5D2A38CEDD002DD054 /* GameManager.swift in Sources */,
 				C1A38D2A2A38C74F002DD054 /* AppDelegate.swift in Sources */,
 				C1A38D2C2A38C74F002DD054 /* SceneDelegate.swift in Sources */,
 			);
@@ -442,8 +474,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,8 +501,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
