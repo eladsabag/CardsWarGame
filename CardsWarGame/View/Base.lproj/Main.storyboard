@@ -113,9 +113,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCw-nj-WWI">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="392"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ace_club" translatesAutoresizingMaskIntoConstraints="NO" id="Sp2-X0-vz6">
+                                <rect key="frame" x="306" y="1" width="240" height="392"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D7a-J4-faF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -128,6 +132,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ace_club" width="512" height="512"/>
         <image name="ic_east_side" width="115" height="227"/>
         <image name="ic_west_side" width="116" height="226"/>
         <systemColor name="systemBackgroundColor">
