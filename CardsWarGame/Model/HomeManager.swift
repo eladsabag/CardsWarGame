@@ -7,21 +7,26 @@
 
 import Foundation
 
-protocol GameManagerDelegate {
+protocol HomeManagerDelegate {
     func didPassChecks()
-    func didFailChecks(errorType: Int, message: String)
+    func didFailChecks(errorType: Int)
 }
 
-struct GameManager {
+class HomeManager {
     let middlePoint: Double = 34.817549168324334
-    var delegate: GameManagerDelegate?
-    var model: GameModel?
+    var delegate: HomeManagerDelegate?
+    var model: HomeModel?
     
+    init(delegate: HomeManagerDelegate? = nil, model: HomeModel? = nil) {
+        self.delegate = delegate
+        self.model = model
+    }
+
     func performChecks() {
         if model?.name == nil {
-            self.delegate?.didFailChecks(errorType: 0, message: "Please make sure you insert name in order to start game.")
+            self.delegate?.didFailChecks(errorType: 0)
         } else if model?.lat == nil || model?.lon == nil {
-            self.delegate?.didFailChecks(errorType: 1, message: "Please make sure you enabled location services in order to start game.")
+            self.delegate?.didFailChecks(errorType: 1)
         } else {
             self.delegate?.didPassChecks()
         }

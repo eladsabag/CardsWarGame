@@ -8,25 +8,34 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     @IBOutlet weak var inserNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameLabelButton: UILabel!
+    @IBOutlet weak var westSideLabel: UILabel!
+    @IBOutlet weak var eastSideLabel: UILabel!
     
-    var gameManager = GameManager()
+    var homeManager = HomeManager()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        gameManager.delegate = self
+        eastSideLabel.isHidden = true
+        westSideLabel.isHidden = true
         
-        handlePermissions()
+        locationManager.delegate = self
+        homeManager = HomeManager(delegate: self, model: HomeModel())
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+
         if let name = UserDefaults.standard.string(forKey: "name") {
-            self.nameLabel.text = "Hi, \(name)"
-            self.gameManager.model?.name = name
-            self.inserNameButton.isHidden = true
+            DispatchQueue.main.async {
+                self.nameLabel.text = "Hi, \(name)"
+                self.inserNameButton.isHidden = true
+                self.homeManager.model?.name = name
+            }
         }
     }
     
@@ -34,15 +43,15 @@ class ViewController: UIViewController {
     @IBAction func inserName(_ sender: Any) {
         let alertController = UIAlertController(title: "Insert Name", message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
-            textField.placeholder = self.gameManager.model?.name ?? "Name"
+            textField.placeholder = self.homeManager.model?.name ?? "Name"
         }
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             guard let textField = alertController.textFields?.first else { return }
             let enteredText = textField.text ?? ""
             self.nameLabel.text = "Hi, \(enteredText)"
-            self.gameManager.model?.name = enteredText
             self.inserNameButton.isHidden = true
+            self.homeManager.model?.name = enteredText
             
             UserDefaults.standard.set(enteredText, forKey: "name")
         }
@@ -56,22 +65,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startButton(_ sender: UIButton) {
-        gameManager.performChecks()
-    }
-    
-    func handlePermissions() {
-        if CLLocationManager.locationServicesEnabled() {
-            switch (CLLocationManager.authorizationStatus()) {
-                case .notDetermined, .restricted, .denied:
-                    print("No access")
-                case .authorizedAlways, .authorizedWhenInUse:
-                    locationManager.requestLocation()
-                @unknown default:
-                    break
-                }
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
+        homeManager.performChecks()
     }
     
     func showToast(message: String, duration: TimeInterval = 2.0) {
@@ -85,16 +79,31 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : CLLocationManagerDelegate {
-    
+extension HomeViewController : CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+            case .authorizedAlways, .authorizedWhenInUse:
+                self.locationManager.requestLocation()
+                break
+            case .notDetermined, .denied, .restricted:
+                break
+            default: break
+        }
+    }
+        
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            gameManager.model?.lat = lat
-            gameManager.model?.lon = lon
+            homeManager.model?.lat = lat
+            homeManager.model?.lon = lon
             print("lat=\(lat) lon=\(lon)")
+            
+            DispatchQueue.main.async {
+                self.eastSideLabel.isHidden = self.homeManager.isEast()
+                self.westSideLabel.isHidden = !self.homeManager.isEast()
+            }
         }
     }
     
@@ -103,23 +112,24 @@ extension ViewController : CLLocationManagerDelegate {
     }
 }
 
-extension ViewController : GameManagerDelegate {
+extension HomeViewController : HomeManagerDelegate {
     
     func didPassChecks() {
-        
+        self.performSegue(withIdentifier: "navigateToGame", sender: self)
     }
     
-    func didFailChecks(errorType: Int, message: String) {
+    func didFailChecks(errorType: Int) {
         switch(errorType) {
             case 0:
-                handlePermissions()
+                showToast(message: "Please make sure you insert name in order to start game.")
                 break;
             case 1:
+                showToast(message: "Please make sure you enabled location services and wait for location to be received.")
+                locationManager.requestLocation()
                 break;
             default:
                 break;
         }
-        showToast(message: message)
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameModel {
+class HomeModel {
     var name: String?
     var lat: Double?
     var lon: Double?
