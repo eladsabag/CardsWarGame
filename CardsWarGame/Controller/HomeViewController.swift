@@ -115,7 +115,7 @@ extension HomeViewController : CLLocationManagerDelegate {
 extension HomeViewController : HomeManagerDelegate {
     
     func didPassChecks() {
-        self.performSegue(withIdentifier: "navigateToGame", sender: self)
+        self.performSegue(withIdentifier: "navigateToGame", sender: self.homeManager.model?.name)
     }
     
     func didFailChecks(errorType: Int) {
