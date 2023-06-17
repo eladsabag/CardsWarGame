@@ -25,7 +25,6 @@ class GameViewController : UIViewController {
     @IBOutlet weak var eastScore: UILabel!
     
     @IBOutlet weak var westName: UILabel!
-    
     @IBOutlet weak var westScore: UILabel!
     
     override func viewDidLoad() {

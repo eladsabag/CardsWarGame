@@ -110,8 +110,8 @@ extension HomeViewController : CLLocationManagerDelegate {
             print("lat=\(lat) lon=\(lon)")
             
             DispatchQueue.main.async {
-                self.eastSideLabel.isHidden = self.homeManager.isEast()
-                self.westSideLabel.isHidden = !self.homeManager.isEast()
+                self.eastSideLabel.isHidden = !self.homeManager.isEast()
+                self.westSideLabel.isHidden = self.homeManager.isEast()
             }
         }
     }
