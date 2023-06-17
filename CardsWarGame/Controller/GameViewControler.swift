@@ -11,10 +11,12 @@ class GameViewController : UIViewController {
     let suits = ["heart", "spades", "diamond", "club"]
     let ranks = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "prince", "queen", "king", "ace"]
     var cardImages: [UIImage] = []
-    var timer: Timer?
+    var timerHandler: TimerHandler?
     var gamesNum = 0
     var westScoreCount = 0
     var eastScoreCount = 0
+    var isEast: Bool?
+    var playerName: String?
     
     @IBOutlet weak var westCardImage: UIImageView!
     @IBOutlet weak var eastCardImage: UIImageView!
@@ -28,15 +30,16 @@ class GameViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initCardImages()
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(selectRandomCards), userInfo: nil, repeats: true)
+        initViews()
+        timerHandler = TimerHandler()
+        timerHandler?.delegate = self
+        timerHandler?.startTimer()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? GameViewController, let playerName = sender as? String {
-            destinationVC.eastName.text = playerName
-            destinationVC.westName.text = "PC"
-        }
+    func initViews() {
+        eastName.text = isEast! ? playerName : "PC"
+        westName.text = isEast! ? "PC" : playerName
+        initCardImages()
     }
     
     func initCardImages() {
@@ -64,17 +67,31 @@ class GameViewController : UIViewController {
         let result = compareImages(imageWest: westCardImage.image!, imageEast: eastCardImage.image!)
         if result == 0 {
             westScoreCount+=1
-            westName.text = "\(westScoreCount)"
+            westScore.text = "\(westScoreCount)"
         }
         if result == 1 {
             eastScoreCount+=1
-            eastName.text = "\(eastScoreCount)"
+            eastScore.text = "\(eastScoreCount)"
         }
         
         gamesNum+=1
         if gamesNum == 10 {
-            timer?.invalidate()
-            timer = nil
+            timerHandler?.stopTimer()
+            self.performSegue(withIdentifier: "navigateToResult", sender: self)
+        }
+    }
+    
+    func selectCardsFaceDown() {
+        westCardImage.image = UIImage(named: "card")
+        eastCardImage.image = UIImage(named: "card")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "navigateToResult" {
+            if let destinationVC = segue.destination as? ResultViewController {
+                destinationVC.playerName = westScoreCount > eastScoreCount ? westName.text : westScoreCount < eastScoreCount ? eastName.text : "Home"
+                destinationVC.playerScore = westScoreCount > eastScoreCount ?  westScoreCount : westScoreCount < eastScoreCount ? eastScoreCount : eastScoreCount
+            }
         }
     }
     
@@ -94,5 +111,15 @@ class GameViewController : UIViewController {
         } else {
             return -1 // tie
         }
+    }
+}
+
+extension GameViewController : TimerHandlerDelegate {
+    func onCardFaceUp() {
+        selectRandomCards()
+    }
+    
+    func onCardFaceDown() {
+        selectCardsFaceDown()
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C190871B2A3B967000810B13 /* GameViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C190871A2A3B967000810B13 /* GameViewControler.swift */; };
+		C19839702A3DA7130097F395 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198396F2A3DA7130097F395 /* ResultViewController.swift */; };
+		C19839732A3DB2C10097F395 /* TimerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839722A3DB2C10097F395 /* TimerHandler.swift */; };
 		C1A38D2A2A38C74F002DD054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D292A38C74F002DD054 /* AppDelegate.swift */; };
 		C1A38D2C2A38C74F002DD054 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D2B2A38C74F002DD054 /* SceneDelegate.swift */; };
 		C1A38D2E2A38C74F002DD054 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A38D2D2A38C74F002DD054 /* HomeViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		C190871A2A3B967000810B13 /* GameViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControler.swift; sourceTree = "<group>"; };
+		C198396F2A3DA7130097F395 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		C19839722A3DB2C10097F395 /* TimerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHandler.swift; sourceTree = "<group>"; };
 		C1A38D262A38C74F002DD054 /* CardsWarGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsWarGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A38D292A38C74F002DD054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1A38D2B2A38C74F002DD054 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C19839712A3DB2A50097F395 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C19839722A3DB2C10097F395 /* TimerHandler.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C1A38D1D2A38C74F002DD054 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +117,7 @@
 		C1A38D282A38C74F002DD054 /* CardsWarGame */ = {
 			isa = PBXGroup;
 			children = (
+				C19839712A3DB2A50097F395 /* Utils */,
 				C1A38D5B2A38C8D2002DD054 /* View */,
 				C1A38D5A2A38C769002DD054 /* Controller */,
 				C1A38D592A38C75F002DD054 /* Model */,
@@ -148,6 +161,7 @@
 			children = (
 				C1A38D2D2A38C74F002DD054 /* HomeViewController.swift */,
 				C190871A2A3B967000810B13 /* GameViewControler.swift */,
+				C198396F2A3DA7130097F395 /* ResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,7 +307,9 @@
 			files = (
 				C1A38D5F2A38D001002DD054 /* HomeModel.swift in Sources */,
 				C1A38D2E2A38C74F002DD054 /* HomeViewController.swift in Sources */,
+				C19839702A3DA7130097F395 /* ResultViewController.swift in Sources */,
 				C1A38D5D2A38CEDD002DD054 /* HomeManager.swift in Sources */,
+				C19839732A3DB2C10097F395 /* TimerHandler.swift in Sources */,
 				C190871B2A3B967000810B13 /* GameViewControler.swift in Sources */,
 				C1A38D2A2A38C74F002DD054 /* AppDelegate.swift in Sources */,
 				C1A38D2C2A38C74F002DD054 /* SceneDelegate.swift in Sources */,

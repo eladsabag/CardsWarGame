@@ -77,6 +77,15 @@ class HomeViewController: UIViewController {
             alertController.dismiss(animated: true)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "navigateToGame" {
+            if let destinationVC = segue.destination as? GameViewController {
+                destinationVC.isEast = self.homeManager.isEast()
+                destinationVC.playerName = self.homeManager.model?.name
+            }
+        }
+    }
 }
 
 extension HomeViewController : CLLocationManagerDelegate {
@@ -115,7 +124,7 @@ extension HomeViewController : CLLocationManagerDelegate {
 extension HomeViewController : HomeManagerDelegate {
     
     func didPassChecks() {
-        self.performSegue(withIdentifier: "navigateToGame", sender: self.homeManager.model?.name)
+        self.performSegue(withIdentifier: "navigateToGame", sender: self)
     }
     
     func didFailChecks(errorType: Int) {

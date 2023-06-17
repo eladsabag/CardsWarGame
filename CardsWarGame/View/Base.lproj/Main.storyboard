@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20.422535211267608" y="3.8167938931297707"/>
+            <point key="canvasLocation" x="8" y="-802"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Q4N-dm-wvl">
@@ -160,11 +160,57 @@
                         <outlet property="westCardImage" destination="d8j-Pi-Ej5" id="gsy-Ha-bOp"/>
                         <outlet property="westName" destination="seh-zz-3DQ" id="80Z-as-79Y"/>
                         <outlet property="westScore" destination="s4D-wc-gpU" id="iqh-G9-VGX"/>
+                        <segue destination="5io-iI-Fzp" kind="presentation" identifier="navigateToResult" id="gkc-k2-YUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mM8-CQ-o5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2.1126760563380285" y="-1988.5496183206105"/>
+            <point key="canvasLocation" x="868" y="-1567"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="WAr-w8-EWf">
+            <objects>
+                <viewController id="5io-iI-Fzp" customClass="ResultViewController" customModule="CardsWarGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jam-OT-SOi">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS2-LP-MjX">
+                                <rect key="frame" x="355" y="148" width="185" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsu-n4-aML">
+                                <rect key="frame" x="355" y="215" width="129" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Back to Menu"/>
+                                <connections>
+                                    <action selector="onBackToMenuPressed:" destination="5io-iI-Fzp" eventType="touchUpInside" id="Hqa-ik-8bD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winner : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIR-2L-hK1">
+                                <rect key="frame" x="355" y="97" width="185" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1t4-ov-2JU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="winnerName" destination="lIR-2L-hK1" id="Oeq-eW-UJg"/>
+                        <outlet property="winnerScore" destination="dS2-LP-MjX" id="P5O-5B-Dih"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="navigateToHome" id="hFv-zq-XJE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypq-mW-ugH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130.28169014084509" y="-2756.4885496183206"/>
         </scene>
     </scenes>
     <resources>
